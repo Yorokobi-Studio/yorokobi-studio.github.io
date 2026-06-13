@@ -914,6 +914,75 @@ main {
   transform: translateX(4px);
 }
 
+/* --- Concept card (single highlighted first-work concept) --- */
+.concept-card {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-card);
+  box-shadow: var(--shadow);
+}
+
+.concept-media {
+  position: relative;
+  min-height: 280px;
+  border-right: 1px solid var(--color-line);
+  background: #fffaf0;
+}
+
+.concept-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.concept-content {
+  padding: clamp(1.6rem, 4vw, 2.7rem);
+}
+
+.concept-content .card-title {
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.55rem, 3.4vw, 2.3rem);
+}
+
+.concept-content > p {
+  color: var(--color-muted);
+  font-size: 1.04rem;
+}
+
+.concept-themes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1.3rem 0 0;
+}
+
+.concept-themes .theme-label {
+  width: 100%;
+  margin-bottom: 0.1rem;
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  .concept-card {
+    grid-template-columns: 1fr;
+  }
+
+  .concept-media {
+    min-height: 200px;
+    border-right: none;
+    border-bottom: 1px solid var(--color-line);
+  }
+}
+
 /* --- Roadmap timeline --- */
 .timeline {
   display: grid;

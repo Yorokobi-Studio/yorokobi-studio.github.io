@@ -11,17 +11,20 @@ published directly to **GitHub Pages**.
 
 ## What this site is
 
-A small, honest home for the studio while it is still in early development. It covers:
+A small, honest home for the studio while it is still in its **foundation stage**. The
+studio has **no published works yet** and no catalog. There is currently a single
+**early narrative concept** for its first long-term visual novel. The site covers:
 
 - studio identity and philosophy;
-- works and prototypes in development;
+- the concept for the first long-term visual novel;
 - a development roadmap;
 - a mini press kit;
 - future support channels;
 - contact information.
 
 Development notes (the studio blog) are published separately at
-**<https://adriansantos.blog>**.
+**<https://adriansantos.blog>**. The first concept note lives at
+<https://adriansantos.blog/posts/building-yorokobi-studio-the-beginning-of-a-long-visual-novel-journey>.
 
 ---
 
@@ -30,7 +33,7 @@ Development notes (the studio blog) are published separately at
 ```txt
 /
   index.html          Home
-  works.html          Project catalog
+  works.html          First visual novel concept (no published works yet)
   studio.html         About / philosophy
   roadmap.html        Development roadmap (timeline)
   support.html        Future support channels
@@ -48,8 +51,8 @@ Development notes (the studio blog) are published separately at
       logo.svg              Full logo lockup (emblem + wordmark)
       logo-mark.svg         Crane emblem (used in the header)
       og-image.png          Social share image (1200×630)
-      placeholder-hero.svg
-      placeholder-work-1.svg ... placeholder-work-4.svg
+      placeholder-hero.svg     Home hero illustration
+      placeholder-concept.svg  Artwork for the first concept card
     favicon/
       favicon.ico
       favicon.svg
@@ -104,8 +107,8 @@ from a domain root or a project subpath.
 ### Text content
 Edit the `.html` files directly — each page is self-contained:
 
-- `index.html` — hero, studio notes, featured works, philosophy, current development;
-- `works.html` — project cards;
+- `index.html` — hero, studio notes, first-concept card, philosophy, current development;
+- `works.html` — institutional intro + the single first-concept card (`.concept-card`);
 - `studio.html` — philosophy and "how we build";
 - `roadmap.html` — the four development phases;
 - `support.html` — support copy and future channels;

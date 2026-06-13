@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 760" role="img" aria-labelledby="title desc">
+  <title id="title">First Visual Novel Concept</title>
+  <desc id="desc">An abstract scene of a rising sun over a quiet horizon with a single paper crane and drifting petals, evoking a second chance.</desc>
+  <defs>
+    <linearGradient id="cbg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#FFFDF8"/>
+      <stop offset=".55" stop-color="#F8F5EF"/>
+      <stop offset="1" stop-color="#F1E6D0"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#C6A43F" stop-opacity=".55"/>
+      <stop offset=".7" stop-color="#C6A43F" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#C6A43F" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="cshadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#2B2523" flood-opacity=".12"/>
+    </filter>
+  </defs>
+
+  <rect width="640" height="760" fill="url(#cbg)"/>
+
+  <!-- rising sun / second chance -->
+  <circle cx="320" cy="500" r="250" fill="url(#sun)"/>
+  <circle cx="320" cy="500" r="150" fill="none" stroke="#C6A43F" stroke-width="2" opacity=".4"/>
+
+  <!-- quiet horizon -->
+  <path d="M0 540 H640" stroke="#DC143C" stroke-width="2" opacity=".25"/>
+  <path d="M0 540 C160 510 480 510 640 540 L640 760 L0 760 Z" fill="#fffdf8" opacity=".55"/>
+
+  <!-- faint memory crane (the life that was) -->
+  <g transform="translate(150,360) scale(1.1)" opacity=".18">
+    <polygon points="60,60 10,44 52,82" fill="#DC143C"/>
+    <polygon points="44,58 80,56 60,104" fill="#DC143C"/>
+    <polygon points="60,58 44,12 82,56" fill="#DC143C"/>
+    <polygon points="60,54 114,28 96,42" fill="#DC143C"/>
+  </g>
+
+  <!-- present crane, rising -->
+  <g transform="translate(300,150) scale(1.7)" filter="url(#cshadow)">
+    <polygon points="60,60 10,44 52,82" fill="#A80F2D"/>
+    <polygon points="44,58 80,56 60,104" fill="#A80F2D"/>
+    <polygon points="60,58 44,12 82,56" fill="#DC143C"/>
+    <polygon points="60,54 114,28 96,42" fill="#DC143C"/>
+    <polygon points="114,28 96,33 102,40" fill="#DC143C"/>
+  </g>
+
+  <!-- drifting petals -->
+  <path d="M120 180 C140 168 160 176 156 196 C150 184 128 198 120 180Z" fill="#DC143C" opacity=".5"/>
+  <path d="M520 300 C540 288 560 296 556 316 C550 304 528 318 520 300Z" fill="#C6A43F" opacity=".55"/>
+  <path d="M470 600 C490 588 510 596 506 616 C500 604 478 618 470 600Z" fill="#DC143C" opacity=".4"/>
+</svg>
