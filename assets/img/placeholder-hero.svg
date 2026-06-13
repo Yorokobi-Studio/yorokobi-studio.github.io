@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" role="img" aria-labelledby="title desc">
+  <title id="title">Yorokobi Studio</title>
+  <desc id="desc">JOY AFTER HARDSHIP</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#FFFDF8"/>
+      <stop offset="0.55" stop-color="#F8F5EF"/>
+      <stop offset="1" stop-color="#F1E6D0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="70%" cy="20%" r="60%">
+      <stop offset="0" stop-color="#DC143C" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#DC143C" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#2B2523" flood-opacity=".12"/>
+    </filter>
+  </defs>
+  <rect width="960" height="720" fill="url(#bg)"/>
+  <rect width="960" height="720" fill="url(#glow)"/>
+  <circle cx="788" cy="118" r="98" fill="#DC143C" opacity=".08"/>
+  <circle cx="180" cy="592" r="134" fill="#C6A43F" opacity=".13"/>
+  <path d="M136 142 C300 74 510 102 668 218 C796 312 840 462 770 554 C684 668 468 668 286 582 C116 502 24 314 136 142Z" fill="#fffdf8" opacity=".72"/>
+  <g filter="url(#shadow)">
+    <path d="M279 380 L456 162 L525 384 Z" fill="#fffdf8" stroke="#2B2523" stroke-opacity=".18" stroke-width="4"/>
+    <path d="M456 162 L716 308 L525 384 Z" fill="#fffaf0" stroke="#2B2523" stroke-opacity=".15" stroke-width="4"/>
+    <path d="M525 384 L670 524 L410 462 Z" fill="#DC143C" opacity=".86"/>
+    <path d="M279 380 L410 462 L456 162 Z" fill="#C6A43F" opacity=".78"/>
+    <path d="M410 462 L344 560 L525 384 Z" fill="#fffdf8" stroke="#2B2523" stroke-opacity=".14" stroke-width="4"/>
+    <path d="M525 384 L716 308 L670 524 Z" fill="#fffdf8" stroke="#2B2523" stroke-opacity=".14" stroke-width="4"/>
+  </g>
+  <path d="M740 160 C766 118 820 112 840 148 C862 188 818 228 770 250 C790 218 714 204 740 160Z" fill="#DC143C" opacity=".72"/>
+  <path d="M745 170 C785 190 815 192 840 148" fill="none" stroke="#fffdf8" stroke-width="5" opacity=".64"/>
+  <text x="72" y="630" fill="#2B2523" font-family="Georgia, serif" font-size="56" font-weight="700" opacity=".9">Yorokobi Studio</text>
+  <text x="75" y="674" fill="#8A817C" font-family="system-ui, sans-serif" font-size="24" letter-spacing="4">JOY AFTER HARDSHIP</text>
+</svg>

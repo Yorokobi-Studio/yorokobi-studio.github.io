@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 200" role="img" aria-label="Yorokobi Studio logo">
+  <!-- Emblem -->
+  <g transform="translate(10,40)">
+    <circle cx="60" cy="60" r="52" fill="none" stroke="#C6A43F" stroke-width="2.2"/>
+    <polygon points="60,60 10,44 52,82" fill="#A80F2D"/>
+    <polygon points="44,58 80,56 60,104" fill="#A80F2D"/>
+    <polygon points="60,58 44,12 82,56" fill="#DC143C"/>
+    <polygon points="60,54 114,28 96,42" fill="#DC143C"/>
+    <polygon points="114,28 96,33 102,40" fill="#DC143C"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="150" y="92" font-family="'Shippori Mincho','Noto Serif JP',Georgia,serif" font-size="46" font-weight="700" letter-spacing="2" fill="#DC143C">YOROKOBI</text>
+  <text x="152" y="128" font-family="'Inter',system-ui,sans-serif" font-size="22" font-weight="600" letter-spacing="11" fill="#C6A43F">STUDIO</text>
+  <text x="392" y="60" font-family="'Shippori Mincho','Noto Serif JP',serif" font-size="26" fill="#C6A43F">喜悦</text>
+</svg>
