@@ -11,12 +11,12 @@ published directly to **GitHub Pages**.
 
 ## What this site is
 
-A small, honest home for the studio while it is still in its **foundation stage**. The
-studio has **no published works yet** and no catalog. There is currently a single
-**early narrative concept** for its first long-term visual novel. The site covers:
+The official home and game catalog for Yorokobi Studio. **The Last Boat** is available
+on itch.io, and **Angel's Tears** is presented in the **Coming Soon** section until a
+release date is confirmed. The site covers:
 
 - studio identity and philosophy;
-- the concept for the first long-term visual novel;
+- released and upcoming visual novels;
 - a development roadmap;
 - a mini press kit;
 - future support channels;
@@ -33,7 +33,7 @@ Development notes (the studio blog) are published separately at
 ```txt
 /
   index.html          Home
-  works.html          First visual novel concept (no published works yet)
+  works.html          English game catalog
   studio.html         About / philosophy
   roadmap.html        Development roadmap (timeline)
   support.html        Future support channels
@@ -44,6 +44,9 @@ Development notes (the studio blog) are published separately at
   sitemap.xml         SEO
   .nojekyll           Tells GitHub Pages to skip Jekyll processing
   README.md
+  pt-br/
+    index.html        Brazilian Portuguese home
+    works.html        Brazilian Portuguese game catalog
   assets/
     css/style.css     Design system (colors, type, components)
     js/main.js        Mobile menu, active link, reveal, back-to-top
@@ -53,6 +56,9 @@ Development notes (the studio blog) are published separately at
       og-image.png          Social share image (1200×630)
       placeholder-hero.svg     Home hero illustration
       placeholder-concept.svg  Artwork for the first concept card
+      games/
+        the-last-boat/
+          cover.png            Official The Last Boat artwork
     favicon/
       favicon.ico
       favicon.svg
@@ -107,8 +113,10 @@ from a domain root or a project subpath.
 ### Text content
 Edit the `.html` files directly — each page is self-contained:
 
-- `index.html` — hero, studio notes, first-concept card, philosophy, current development;
-- `works.html` — institutional intro + the single first-concept card (`.concept-card`);
+- `index.html` — The Last Boat showcase, studio introduction, game preview, and social links;
+- `works.html` — English catalog with **Released** and **Coming Soon** sections;
+- `pt-br/index.html` — localized Brazilian Portuguese home;
+- `pt-br/works.html` — localized Brazilian Portuguese catalog;
 - `studio.html` — philosophy and "how we build";
 - `roadmap.html` — the four development phases;
 - `support.html` — support copy and future channels;
@@ -127,14 +135,36 @@ All colors live as CSS variables at the top of `assets/css/style.css`:
 ```
 
 ### Images
-Replace the SVG/PNG files in `assets/img/`. Keep the same filenames to avoid touching the
-HTML. All `<img>` elements include descriptive `alt` text — update it if you change an
-image's meaning.
+Game images live under `assets/img/games/<game-slug>/`. All `<img>` elements include
+descriptive `alt` text — update it in every language if you change an image's meaning.
 
 ### Links
+- **The Last Boat:** <https://yorokobi-studio.itch.io/the-last-boat-demo>
+- **Studio itch.io:** <https://yorokobi-studio.itch.io/>
+- **Studio X:** <https://x.com/YorokobiStudio>
 - The **Blog** link (header, footer, and CTAs) points to **<https://adriansantos.blog>**.
   Search the project for `adriansantos.blog` to find every reference.
 - The official email is `contact@yorokobistudio.com`.
+
+### Adding games
+
+For a released game, add an entry under **Released / Publicados**, include the official
+artwork, and link only to a verified release page.
+
+For a game without a confirmed release date, add it under **Coming Soon / Em breve** and
+reuse the `.release-note` pattern with these standard messages:
+
+- English: `Release date to be announced. More details will be shared when the project is ready.`
+- PT-BR: `Data de lançamento a ser anunciada. Mais detalhes serão compartilhados quando o projeto estiver pronto.`
+
+Do not invent dates, platforms, prices, or production details.
+
+### Localization
+
+English pages remain at the site root. Brazilian Portuguese pages live in `pt-br/`.
+Every translated page has its own HTML document, canonical URL, language metadata, and
+language switch. Future languages can follow the same pattern in folders such as `ja/`
+and `es/`; do not expose a language option before its pages exist.
 
 ### Favicon
 The favicons in `assets/favicon/` were generated from the studio's paper-crane mark.

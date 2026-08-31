@@ -10,22 +10,24 @@
 */
 
 :root {
-  --color-bg: #F8F5EF;
-  --color-bg-soft: #FFFDF8;
-  --color-card: rgba(255, 253, 248, 0.84);
-  --color-text: #2B2523;
-  --color-muted: #8A817C;
+  --color-bg: #F7F6F2;
+  --color-bg-soft: #FFFFFF;
+  --color-card: rgba(255, 255, 255, 0.9);
+  --color-text: #22252B;
+  --color-muted: #656A73;
   --color-red: #DC143C;
   --color-red-dark: #A80F2D;
   --color-gold: #C6A43F;
-  --color-line: rgba(43, 37, 35, 0.12);
-  --color-shadow: rgba(43, 37, 35, 0.10);
+  --color-blue: #1E64B7;
+  --color-blue-dark: #173E69;
+  --color-line: rgba(34, 37, 43, 0.14);
+  --color-shadow: rgba(34, 37, 43, 0.10);
   --font-title: "Shippori Mincho", "Noto Serif JP", "Noto Serif", Georgia, serif;
   --font-body: "Inter", "Noto Sans", "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --container: min(1120px, calc(100% - 40px));
-  --radius: 24px;
-  --radius-sm: 16px;
-  --shadow: 0 18px 50px var(--color-shadow);
+  --radius: 8px;
+  --radius-sm: 6px;
+  --shadow: 0 18px 48px var(--color-shadow);
   --transition: 180ms ease;
 }
 
@@ -46,10 +48,7 @@ body {
   min-height: 100vh;
   font-family: var(--font-body);
   line-height: 1.65;
-  background:
-    radial-gradient(circle at top left, rgba(220, 20, 60, 0.08), transparent 34rem),
-    radial-gradient(circle at bottom right, rgba(198, 164, 63, 0.12), transparent 35rem),
-    linear-gradient(180deg, var(--color-bg), #fffaf0 44%, var(--color-bg));
+  background: var(--color-bg);
   color: var(--color-text);
 }
 
@@ -101,7 +100,7 @@ p {
   top: 0;
   z-index: 100;
   backdrop-filter: blur(16px);
-  background: rgba(248, 245, 239, 0.88);
+  background: rgba(247, 246, 242, 0.92);
   border-bottom: 1px solid var(--color-line);
 }
 
@@ -199,7 +198,7 @@ p {
 .site-nav a {
   position: relative;
   padding: 0.7rem 0.85rem;
-  border-radius: 999px;
+  border-radius: 4px;
   color: var(--color-muted);
   font-size: 0.92rem;
   font-weight: 650;
@@ -304,7 +303,7 @@ main {
   min-height: 48px;
   padding: 0.82rem 1.2rem;
   border: 1px solid transparent;
-  border-radius: 999px;
+  border-radius: 6px;
   font-size: 0.94rem;
   font-weight: 750;
   transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition), color var(--transition);
@@ -1327,7 +1326,7 @@ main {
   }
 
   .site-nav {
-    inset-top: 70px;
+    top: 70px;
   }
 
   .hero-title {
@@ -1349,6 +1348,589 @@ main {
   }
 
   .cta {
-    border-radius: 24px;
+    border-radius: 8px;
+  }
+}
+
+/* =====================================================================
+   GAME SHOWCASE — active studio, catalog, and localization
+   ===================================================================== */
+
+h1,
+h2,
+h3,
+.hero-title,
+.section-title,
+.page-hero h1,
+.cta h2 {
+  letter-spacing: 0;
+}
+
+.section-title {
+  font-size: 3.6rem;
+  line-height: 1.08;
+}
+
+.page-hero h1 {
+  font-size: 5.5rem;
+  line-height: 1;
+}
+
+.site-nav {
+  gap: 0.1rem;
+}
+
+.site-nav a {
+  padding: 0.62rem 0.66rem;
+  font-size: 0.86rem;
+}
+
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-left: 0.35rem;
+  padding-left: 0.65rem;
+  border-left: 1px solid var(--color-line);
+  color: var(--color-muted);
+  font-size: 0.76rem;
+  font-weight: 750;
+}
+
+.language-switch > span,
+.language-switch > a {
+  padding: 0.35rem 0.4rem;
+}
+
+.language-switch > span[aria-current="page"] {
+  color: var(--color-text);
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: 4px;
+}
+
+.language-switch > a {
+  color: var(--color-muted);
+}
+
+.language-switch > a:hover {
+  color: var(--color-red);
+  background: transparent;
+}
+
+.language-switch > a::after {
+  display: none !important;
+}
+
+.game-hero {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: clamp(520px, calc(100svh - 150px), 820px);
+  min-height: 0;
+  overflow: hidden;
+  background: #dceaf8;
+}
+
+.game-hero-art,
+.game-hero-shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.game-hero-art {
+  z-index: -2;
+  object-fit: cover;
+  object-position: 50% 62%;
+}
+
+.game-hero-shade {
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(15, 32, 54, 0.82) 0%, rgba(20, 47, 76, 0.54) 38%, rgba(22, 57, 92, 0.08) 70%),
+    linear-gradient(0deg, rgba(8, 25, 43, 0.48) 0%, rgba(8, 25, 43, 0) 48%);
+}
+
+.game-hero-content {
+  width: var(--container);
+  height: 100%;
+  margin: 0 auto;
+  padding: 2.5rem 0 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  color: #fff;
+}
+
+.game-hero-content h1 {
+  max-width: 720px;
+  margin: 0.5rem 0 0;
+  font-family: var(--font-title);
+  font-size: 6rem;
+  line-height: 1;
+  letter-spacing: 0;
+  text-shadow: 0 2px 28px rgba(10, 31, 52, 0.28);
+}
+
+.game-hero-content > p:last-of-type {
+  max-width: 560px;
+  margin: 1rem 0 0;
+  font-size: 1.12rem;
+  text-shadow: 0 2px 18px rgba(10, 31, 52, 0.6);
+}
+
+.game-hero-studio {
+  margin: 0.8rem 0 0 !important;
+  font-size: 0.82rem !important;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.game-status {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.36rem 0.62rem;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.game-status-released {
+  color: #14594B;
+  background: #E7F5EF;
+}
+
+.game-hero .game-status-released {
+  color: #fff;
+  background: rgba(12, 44, 68, 0.38);
+  border-color: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+}
+
+.game-status-upcoming {
+  color: #775819;
+  background: #FBF2D9;
+}
+
+.button-light {
+  color: #17334f;
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.72);
+}
+
+.button-light:hover {
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(13, 39, 65, 0.18);
+}
+
+.studio-intro {
+  background: #fff;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.studio-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.7fr);
+  gap: 4rem;
+  align-items: start;
+}
+
+.studio-intro-copy {
+  padding-top: 2rem;
+  color: var(--color-muted);
+  font-size: 1.05rem;
+}
+
+.games-preview {
+  background: var(--color-bg);
+}
+
+.game-list {
+  display: grid;
+  border-top: 1px solid var(--color-line);
+}
+
+.game-row {
+  display: grid;
+  grid-template-columns: minmax(280px, 1.12fr) minmax(260px, 0.88fr);
+  min-height: 360px;
+  border-bottom: 1px solid var(--color-line);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.game-row-media {
+  overflow: hidden;
+  background: #eaf2fb;
+}
+
+.game-row-media img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: 50% 62%;
+  transition: transform 360ms ease;
+}
+
+.game-row-media:hover img {
+  transform: scale(1.015);
+}
+
+.game-row-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2.5rem;
+}
+
+.game-row-content h3,
+.catalog-copy h3 {
+  margin: 0.8rem 0;
+  font-family: var(--font-title);
+  font-size: 2.6rem;
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.game-row-content > p,
+.catalog-copy > p {
+  color: var(--color-muted);
+}
+
+.game-row-mark,
+.catalog-symbol {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.8rem;
+  min-height: 300px;
+  color: var(--color-red);
+  background: #F1ECE8;
+  font-family: var(--font-title);
+  font-size: 2.3rem;
+}
+
+.release-note {
+  margin: 1.1rem 0 0;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid var(--color-gold);
+  color: #5D4A23 !important;
+  background: #FBF6E8;
+  font-size: 0.92rem;
+}
+
+.follow-band {
+  padding: 4.5rem 0;
+  color: #fff;
+  background: #24303D;
+}
+
+.follow-band .eyebrow {
+  color: #AFCDEA;
+}
+
+.follow-band h2 {
+  margin: 0;
+  font-family: var(--font-title);
+  font-size: 3rem;
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.follow-band p {
+  margin: 0.8rem 0 0;
+  color: #D8DEE5;
+}
+
+.follow-band-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 3rem;
+}
+
+.follow-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.follow-band .button-secondary {
+  color: #fff;
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.34);
+}
+
+.site-footer {
+  margin-top: 0;
+  background: #F1F0EC;
+}
+
+.page-hero-compact {
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+}
+
+.catalog-section {
+  padding-top: 1rem;
+}
+
+.catalog-heading {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 1.8rem;
+}
+
+.catalog-index {
+  padding-top: 0.32rem;
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.catalog-heading .eyebrow {
+  margin-bottom: 0.5rem;
+}
+
+.catalog-heading h2 {
+  margin: 0;
+  font-family: var(--font-title);
+  font-size: 3.6rem;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.catalog-game {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.2fr) minmax(300px, 0.8fr);
+  min-height: 460px;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 16px 38px rgba(34, 37, 43, 0.07);
+}
+
+.catalog-art {
+  overflow: hidden;
+  background: #eaf2fb;
+}
+
+.catalog-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 62%;
+}
+
+.catalog-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem;
+}
+
+.catalog-lead {
+  font-size: 1.08rem;
+}
+
+.catalog-upcoming {
+  border-top: 1px solid var(--color-line);
+  background: #F1F0EC;
+}
+
+.catalog-symbol img {
+  width: 96px;
+  height: 96px;
+  opacity: 0.82;
+}
+
+.catalog-note {
+  max-width: 650px;
+  margin: 1.25rem 0 0 auto;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.cta,
+.hero-card,
+.hero-note,
+.manifesto-panel,
+.site-nav,
+.phase,
+.facts,
+.brand-assets {
+  border-radius: 8px;
+}
+
+@media (max-width: 1080px) {
+  .site-nav a {
+    padding-inline: 0.5rem;
+  }
+
+  .brand-sub {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .section-title {
+    font-size: 2.9rem;
+  }
+
+  .page-hero h1 {
+    font-size: 4.5rem;
+  }
+
+  .game-hero-content h1 {
+    font-size: 4.5rem;
+  }
+
+  .site-nav {
+    border-radius: 8px;
+    background: rgba(247, 246, 242, 0.98);
+  }
+
+  .language-switch {
+    justify-content: flex-start;
+    margin: 0.45rem 0 0;
+    padding: 0.75rem 0 0;
+    border-top: 1px solid var(--color-line);
+    border-left: 0;
+  }
+
+  .studio-intro-grid,
+  .game-row,
+  .catalog-game {
+    grid-template-columns: 1fr;
+  }
+
+  .studio-intro-grid {
+    gap: 1.5rem;
+  }
+
+  .studio-intro-copy {
+    padding-top: 0;
+  }
+
+  .game-row-media img {
+    min-height: 360px;
+  }
+
+  .catalog-art img {
+    min-height: 460px;
+  }
+
+  .follow-band-inner {
+    display: grid;
+    align-items: start;
+  }
+
+  .follow-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .section-title {
+    font-size: 2.25rem;
+  }
+
+  .page-hero h1 {
+    font-size: 3.4rem;
+  }
+
+  .game-hero {
+    height: auto;
+    min-height: 0;
+    background: var(--color-blue-dark);
+  }
+
+  .game-hero-art {
+    position: relative;
+    inset: auto;
+    z-index: 0;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .game-hero-shade {
+    bottom: auto;
+    height: auto;
+    aspect-ratio: 1408 / 1117;
+    background: linear-gradient(0deg, rgba(23, 62, 105, 0.28), rgba(23, 62, 105, 0));
+  }
+
+  .game-hero-content {
+    width: 100%;
+    height: auto;
+    padding: 1.4rem 12px 2rem;
+    background: var(--color-blue-dark);
+  }
+
+  .game-hero-content h1 {
+    font-size: 2.7rem;
+  }
+
+  .game-hero-content > p:last-of-type {
+    font-size: 1rem;
+  }
+
+  .game-hero .hero-actions {
+    width: 100%;
+    margin-top: 1.25rem;
+  }
+
+  .game-row-content,
+  .catalog-copy {
+    padding: 1.5rem;
+  }
+
+  .game-row-content h3,
+  .catalog-copy h3 {
+    font-size: 2.05rem;
+  }
+
+  .game-row-media img,
+  .catalog-art img {
+    min-height: 280px;
+  }
+
+  .game-row-mark,
+  .catalog-symbol {
+    min-height: 220px;
+  }
+
+  .follow-band h2 {
+    font-size: 2.25rem;
+  }
+
+  .catalog-heading {
+    grid-template-columns: 38px 1fr;
+  }
+
+  .catalog-heading h2 {
+    font-size: 2.6rem;
+  }
+
+  .catalog-note {
+    text-align: left;
   }
 }

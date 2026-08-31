@@ -3,10 +3,12 @@
 /* ---------- Mobile navigation ---------- */
 const navToggle = document.querySelector('[data-nav-toggle]');
 const siteNav = document.querySelector('[data-site-nav]');
+const isPortuguese = document.documentElement.lang.toLowerCase().startsWith('pt');
 
 if (navToggle && siteNav) {
   const closeNav = () => {
     navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', isPortuguese ? 'Abrir menu de navegação' : 'Open navigation menu');
     siteNav.classList.remove('is-open');
     document.body.classList.remove('nav-open');
   };
@@ -14,6 +16,9 @@ if (navToggle && siteNav) {
   navToggle.addEventListener('click', () => {
     const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
     navToggle.setAttribute('aria-expanded', String(!isOpen));
+    navToggle.setAttribute('aria-label', !isOpen
+      ? (isPortuguese ? 'Fechar menu de navegação' : 'Close navigation menu')
+      : (isPortuguese ? 'Abrir menu de navegação' : 'Open navigation menu'));
     siteNav.classList.toggle('is-open', !isOpen);
     document.body.classList.toggle('nav-open', !isOpen);
   });
@@ -68,7 +73,7 @@ if ('IntersectionObserver' in window) {
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.className = 'to-top';
-  btn.setAttribute('aria-label', 'Back to top');
+  btn.setAttribute('aria-label', isPortuguese ? 'Voltar ao topo' : 'Back to top');
   btn.innerHTML = '↑';
   document.body.appendChild(btn);
 
