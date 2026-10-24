@@ -1,4 +1,4 @@
-/* Yorokobi Studio / v0.0.1 — progressive enhancement only, no dependencies */
+/* Yorokobi Studio — progressive enhancement only, no dependencies */
 (() => {
   'use strict';
 
@@ -53,6 +53,18 @@
     items.forEach((item) => observer.observe(item));
   } else {
     items.forEach((item) => item.classList.add('visible'));
+  }
+
+  const toolkitTrack = document.querySelector('[data-toolkit-track]');
+  if (toolkitTrack) {
+    const originalGroup = toolkitTrack.querySelector('.toolkit-group');
+    if (originalGroup) {
+      const duplicateGroup = originalGroup.cloneNode(true);
+      duplicateGroup.setAttribute('aria-hidden', 'true');
+      duplicateGroup.querySelectorAll('a').forEach((link) => { link.tabIndex = -1; });
+      toolkitTrack.append(duplicateGroup);
+      toolkitTrack.classList.add('is-ready');
+    }
   }
 
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
