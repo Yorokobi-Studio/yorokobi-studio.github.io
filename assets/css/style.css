@@ -1,5 +1,5 @@
 /* ============================================================
-   YOROKOBI STUDIO  /  Website prototype v0.0.1
+   YOROKOBI STUDIO  /  Website prototype v0.0.2
    Palette: original studio reds, blushes, champagne and gold.
    Pure CSS + HTML + JS. Desktop-first editorial layout,
    adapted for mobile. Components are grouped for upgrades.
@@ -195,6 +195,19 @@ img{display:block}
 .step-icon{font:500 54px var(--serif);color:var(--gold);line-height:1;margin:21px 0 21px}
 .step h3{font:800 22px var(--sans);letter-spacing:-.035em;margin:0 0 12px}
 .step p{color:var(--ink-muted);font:400 14px/1.75 var(--body);margin:0}
+.person{background:var(--cream);overflow:hidden}
+.person-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(50px,7vw,110px);align-items:center}
+.person-photo-frame{height:585px;display:flex;align-items:flex-end;overflow:hidden;background:radial-gradient(circle at 55% 32%,#fbf5ec 0%,#f6cad1 62%,#e89fa9 100%)}
+.person-photo-frame img{width:100%;height:100%;object-fit:contain;object-position:bottom}
+.person-photo-caption{display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid #d5b2ac;color:var(--red);font:800 10px var(--sans);letter-spacing:.13em}
+.person-photo-caption span:last-child{color:#907b70}
+.person-content{padding-left:48px;border-left:1px solid #d5b2ac}
+.person-content .section-index{margin-bottom:70px}
+.person-content h2{font:800 clamp(60px,6vw,94px)/1.03 var(--sans);letter-spacing:-.075em;margin:0 0 31px}
+.person-content h2 em{font:600 .95em var(--serif);color:var(--red)}
+.person-content p:not(.micro-heading){max-width:580px;color:#67575a;font:400 16px/1.85 var(--body);margin:0 0 22px}
+.person-content .person-lead{color:var(--ink)!important;font:600 clamp(20px,2vw,27px)/1.55 var(--body)!important}
+.person-content .underlined-link{margin-top:16px}
 /* CTA */
 .contact-section{padding:0 0 85px;background:var(--white)}
 .contact-box{position:relative;isolation:isolate;min-height:615px;overflow:hidden;background:var(--red);padding:34px 57px 29px;color:#fff;display:flex;flex-direction:column;justify-content:space-between}
@@ -292,6 +305,10 @@ img{display:block}
   .work-upcoming{min-height:300px}.work-more{min-height:300px}
   .steps{grid-template-columns:repeat(2,1fr)}.step:nth-child(2){border-right:0}.step:nth-child(-n+2){border-bottom:1px solid #e8d6ca}
   .step:nth-child(3){padding-left:0}
+  .person-grid{grid-template-columns:1fr;gap:45px}
+  .person-photo-frame{height:560px}
+  .person-content{padding:40px 0 0;border-left:0;border-top:1px solid #d5b2ac}
+  .person-content .section-index{margin-bottom:36px}
   .contact-bird{right:-130px;opacity:.13}
   .footer-main{padding-bottom:57px}
   .footer-links{gap:40px}
@@ -354,6 +371,11 @@ img{display:block}
   .step,.step:first-child,.step:nth-child(3),.step:last-child{min-height:0;padding:25px 3px 26px;border-right:0;border-bottom:1px solid #e8d6ca}
   .step:last-child{border-bottom:0}
   .step-icon{font-size:42px;margin:15px 0}.step h3{font-size:21px}
+  .person-photo-frame{height:420px}
+  .person-photo-caption{font-size:8px;letter-spacing:.08em}
+  .person-content{padding-top:30px}
+  .person-content h2{font-size:clamp(54px,12vw,80px)}
+  .person-content p:not(.micro-heading){font-size:15px;line-height:1.8}
   .contact-section{padding-bottom:50px}
   .contact-box{min-height:580px;padding:24px 21px}
   .contact-topline,.contact-bottom{font-size:8px;line-height:1.6}

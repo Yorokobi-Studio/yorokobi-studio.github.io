@@ -1,8 +1,9 @@
 # Roadmap proposto (não é compromisso de implementação)
 
 ## Série 0.0.x — evolução do protótipo
-- 0.0.2: refinar hero, tipografia, animações e encaixe preciso do logotipo a partir do feedback.
-- 0.0.3: validar textos, serviços, tecnologias realmente dominadas e proposta comercial.
+- 0.0.2: seção pessoal de Adrian Santos e acesso ao seu GitHub (concluído).
+- 0.0.3: refinar hero, tipografia, animações e encaixe preciso do logotipo a partir do feedback.
+- Próxima etapa: validar textos, serviços, tecnologias realmente dominadas e proposta comercial.
 - 0.0.4: páginas internas de Services, Work e About com conteúdo próprio.
 - 0.0.5: versão pt-BR, tags SEO/i18n e links de idioma consistentes.
 - 0.0.6: contato estruturado com backend definido, antispam e política de privacidade.

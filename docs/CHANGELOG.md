@@ -1,5 +1,14 @@
 # CHANGELOG — Yorokobi Studio
 
+## 0.0.2 — 2026-10-24
+
+### Adicionado
+- Seção pessoal de Adrian Santos com retrato fornecido, resumo profissional e link para o GitHub.
+- Acesso à nova seção pelo menu principal, menu móvel e rodapé.
+
+### Atualizado
+- Versão visível no rodapé e arquivo `VERSION`.
+
 ## 0.0.1 — 2026-10-24
 
 ### Adicionado
