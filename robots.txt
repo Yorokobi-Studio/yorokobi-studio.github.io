@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://yorokobistudio.com/sitemap.xml

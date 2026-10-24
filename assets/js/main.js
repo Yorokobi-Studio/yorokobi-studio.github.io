@@ -1,91 +1,72 @@
-/* Yorokobi Studio — site interactions (vanilla JS, no dependencies) */
+/* Yorokobi Studio / v0.0.1 — progressive enhancement only, no dependencies */
+(() => {
+  'use strict';
 
-/* ---------- Mobile navigation ---------- */
-const navToggle = document.querySelector('[data-nav-toggle]');
-const siteNav = document.querySelector('[data-site-nav]');
-const isPortuguese = document.documentElement.lang.toLowerCase().startsWith('pt');
+  const toggle = document.querySelector('[data-menu-toggle]');
+  const mobileNav = document.querySelector('[data-mobile-nav]');
+  const header = document.querySelector('[data-header]');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-if (navToggle && siteNav) {
-  const closeNav = () => {
-    navToggle.setAttribute('aria-expanded', 'false');
-    navToggle.setAttribute('aria-label', isPortuguese ? 'Abrir menu de navegação' : 'Open navigation menu');
-    siteNav.classList.remove('is-open');
-    document.body.classList.remove('nav-open');
+  const closeMenu = () => {
+    if (!toggle || !mobileNav) return;
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open navigation menu');
+    mobileNav.hidden = true;
+    document.body.classList.remove('menu-open');
   };
 
-  navToggle.addEventListener('click', () => {
-    const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', String(!isOpen));
-    navToggle.setAttribute('aria-label', !isOpen
-      ? (isPortuguese ? 'Fechar menu de navegação' : 'Close navigation menu')
-      : (isPortuguese ? 'Abrir menu de navegação' : 'Open navigation menu'));
-    siteNav.classList.toggle('is-open', !isOpen);
-    document.body.classList.toggle('nav-open', !isOpen);
-  });
-
-  // Close the menu when any link inside it is clicked.
-  siteNav.addEventListener('click', (event) => {
-    if (event.target instanceof HTMLAnchorElement) {
-      closeNav();
-    }
-  });
-
-  // Close on Escape and return focus to the toggle.
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && siteNav.classList.contains('is-open')) {
-      closeNav();
-      navToggle.focus();
-    }
-  });
-}
-
-/* ---------- Active link highlight (fallback to current file) ---------- */
-(() => {
-  const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-  document.querySelectorAll('[data-site-nav] a').forEach((link) => {
-    const href = (link.getAttribute('href') || '').toLowerCase();
-    if (href === current && !link.classList.contains('active')) {
-      link.classList.add('active');
-    }
-  });
-})();
-
-/* ---------- Reveal on scroll ---------- */
-const fadeItems = document.querySelectorAll('.fade-in');
-
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
+  if (toggle && mobileNav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      toggle.setAttribute('aria-label', isOpen ? 'Open navigation menu' : 'Close navigation menu');
+      mobileNav.hidden = isOpen;
+      document.body.classList.toggle('menu-open', !isOpen);
+    });
+    mobileNav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu(); toggle.focus();
       }
-    }
-  }, { threshold: 0.12 });
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) closeMenu();
+    }, { passive: true });
+  }
 
-  fadeItems.forEach((item) => observer.observe(item));
-} else {
-  fadeItems.forEach((item) => item.classList.add('is-visible'));
-}
+  if (header) {
+    const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 25);
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+  }
 
-/* ---------- Back to top ---------- */
-(() => {
-  const btn = document.createElement('button');
-  btn.type = 'button';
-  btn.className = 'to-top';
-  btn.setAttribute('aria-label', isPortuguese ? 'Voltar ao topo' : 'Back to top');
-  btn.innerHTML = '↑';
-  document.body.appendChild(btn);
+  const items = Array.from(document.querySelectorAll('.reveal'));
+  if ('IntersectionObserver' in window && !reducedMotion.matches) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -45px 0px', threshold: 0.08 });
+    items.forEach((item) => observer.observe(item));
+  } else {
+    items.forEach((item) => item.classList.add('visible'));
+  }
 
-  const onScroll = () => {
-    btn.classList.toggle('is-visible', window.scrollY > 640);
-  };
-
-  btn.addEventListener('click', () => {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const hash = link.getAttribute('href');
+      if (!hash || hash === '#') return;
+      const target = document.querySelector(hash);
+      if (!target) return;
+      event.preventDefault();
+      target.scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth', block: 'start' });
+      window.history.replaceState(null, '', hash);
+    });
   });
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  const year = document.getElementById('year');
+  if (year) year.textContent = String(new Date().getFullYear());
 })();
